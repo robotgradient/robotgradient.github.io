@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://theCamusean.github.io/sitemap.xml
+Sitemap: https://TheCamusean.github.io/sitemap.xml
