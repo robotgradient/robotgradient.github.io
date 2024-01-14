@@ -1,7 +1,7 @@
 ---
 layout: about
 title: about
-permalink: /
+permalink:
 subtitle: Postdoctoral Researcher at the German Research Centre for Artificial Intelligence (DFKI)
  #Incoming Research Scientist at <a href="https://ai.meta.com/" target="_blank" rel="noopener noreferrer">MetaAI</a> (Embodied AI team)
 
