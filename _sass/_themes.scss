@@ -3,12 +3,12 @@
  ******************************************************************************/
 
 :root {
-  --global-bg-color: rgba(253,252,247,255);
+  --global-bg-color: #fdfcf7;
   --global-code-bg-color: #{$code-bg-color-light};
   --global-text-color: #{$black-color};
   --global-text-color-light: #{$grey-color};
-  --global-theme-color: rgba(122,47,56,255);
-  --global-hover-color: rgba(122,47,56,255);
+  --global-theme-color: #7a2f38;
+  --global-hover-color: #7a2f38;
   --global-hover-text-color: #{$white-color};
   --global-footer-bg-color: #{$grey-color-dark};
   --global-footer-text-color: #{$grey-color-light};
