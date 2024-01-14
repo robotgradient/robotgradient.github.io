@@ -17,7 +17,8 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
 
-I recently received my doctorate at TU Darmstadt under the supervision of <a href="https://www.ias.informatik.tu-darmstadt.de/Member/JanPeters" target="_blank" rel="noopener noreferrer">Prof. Jan Peters.</a>
+Hello
+<!-- I recently received my doctorate at TU Darmstadt under the supervision of <a href="https://www.ias.informatik.tu-darmstadt.de/Member/JanPeters" target="_blank" rel="noopener noreferrer">Prof. Jan Peters.</a>
 I am currently a postdoc researcher part of the <a href="https://www.ias.informatik.tu-darmstadt.de/" target='blank'>Intelligent Autonomous Systems lab (IAS)</a> and the <a href="https://www.dfki.de/en/web/" target="_blank" rel="noopener noreferrer">DFKI</a>.
 Previously, I interned as a researcher in <a href="https://research.nvidia.com/labs/srl/" target='blank'>Nvidia's Seattle Robotics Lab (SRL)</a>.
 I did my Master studies at UPC with a Master Thesis at EPFL within the Biorobotics lab.
@@ -35,4 +36,4 @@ In case you are interested in similar topics, I am always looking for collaborat
 <strong>Follow: </strong>
 <a href="https://scholar.google.com/citations?user=lx5qencAAAAJ&hl" target="_blank" title="Google Scholar" rel="noopener noreferrer"><i class="ai ai-google-scholar"></i> Google Scholar</a>
 <a href="https://github.com/TheCamusean" target="_blank" title="GitHub" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-<a href="https://twitter.com/theCamusean" target="_blank" title="Twitter" rel="noopener noreferrer"><i class="fab fa-twitter"></i> Twitter</a>  
+<a href="https://twitter.com/theCamusean" target="_blank" title="Twitter" rel="noopener noreferrer"><i class="fab fa-twitter"></i> Twitter</a>   -->
