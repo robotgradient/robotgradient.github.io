@@ -1,7 +1,7 @@
 ---
 layout: about
 title: about
-permalink:
+permalink: /
 subtitle: Postdoctoral Researcher at the German Research Centre for Artificial Intelligence (DFKI)
 
 profile:
