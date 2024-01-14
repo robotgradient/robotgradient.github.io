@@ -16,8 +16,6 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
 
-**Hello**
-
 I recently received my doctorate at TU Darmstadt under the supervision of [Jan Peters](https://www.ias.informatik.tu-darmstadt.de/Member/JanPeters).
 I am currently a postdoc researcher part of the [Intelligent Autonomous Systems lab (IAS)](https://www.ias.informatik.tu-darmstadt.de/) and the [DFKI](https://www.dfki.de/en/web/).
 Previously, I interned as a researcher in [Nvidia's Seattle Robotics Lab (SRL)](https://research.nvidia.com/labs/srl/).
