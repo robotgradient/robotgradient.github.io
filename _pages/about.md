@@ -32,3 +32,6 @@ In case you are interested in similar topics, I am always looking for collaborat
 **Contact:** julen [at] robot-learning [dot] de
 
 **Follow:**
+[<i class="ai ai-google-scholar"></i> Google Scholar](https://scholar.google.com/citations?user=lx5qencAAAAJ&hl)
+[<i class="fab fa-github"></i> GitHub](https://github.com/TheCamusean)
+[<i class="fab fa-twitter"></i> Twitter](https://twitter.com/theCamusean)
