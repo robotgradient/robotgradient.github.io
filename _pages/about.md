@@ -32,5 +32,5 @@ If you are interested in similar topics, I am always looking for collaborations 
 
 **Follow:**
 [Google Scholar](https://scholar.google.com/citations?user=lx5qencAAAAJ&hl)
-[GitHub](https://github.com/TheCamusean)
-[Twitter](https://twitter.com/theCamusean)
+[GitHub](https://github.com/robotgradient)
+[Twitter](https://twitter.com/thepythagorian)
