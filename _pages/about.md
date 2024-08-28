@@ -27,7 +27,7 @@ My research interests lie at the intersection of **robotics and machine learning
 If you are interested in similar topics, I am always looking for collaborations or thesis supervision, so please do not hesitate to contact me.
 
 
-**Contact:** julen [at] robot-learning [dot] de
+**Contact:** julenuraindejesus[at] gmail [dot] com
 
 **Follow:**
 [Google Scholar](https://scholar.google.com/citations?user=lx5qencAAAAJ&hl)
