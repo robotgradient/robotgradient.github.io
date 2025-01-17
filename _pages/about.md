@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Research Scientist at FAIR (Fundamental AI Research), META
+subtitle: Research Scientist at Meta's FAIR
 
 profile:
   align: right
@@ -16,7 +16,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
 
-I am a research scientist at FAIR, in Meta AI. 
+I am a research scientist at Meta FAIR.
 Previously, I was a postdoctoral researcher at the [Intelligent Autonomous Systems lab (IAS)](https://www.ias.informatik.tu-darmstadt.de/) and the [DFKI](https://www.dfki.de/en/web/).
 I received my PhD in Computer Science with summa cum laude from TU Darmstadt under the supervision of [Prof. Jan Peters](https://www.ias.informatik.tu-darmstadt.de/Member/JanPeters).
 Previously, I interned as a researcher in [Nvidia's Seattle Robotics Lab (SRL)](https://research.nvidia.com/labs/srl/).
