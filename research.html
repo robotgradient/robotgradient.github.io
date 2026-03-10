@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>~/julen</title>
+  <link rel="icon" href="images/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="terminal.css">
+</head>
+<body>
+
+<script>
+  (function() {
+    var t = localStorage.getItem('theme') || 'dark';
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  })();
+</script>
+
+<nav>
+  <span class="nav-prefix">~/julen</span>
+  <ul>
+    <li><a href="index.html">about</a></li>
+    <li class="active"><a href="research.html">research</a></li>
+    <li><a href="contact.html">contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</nav>
+
+<main>
+
+  <div class="boot-header" aria-hidden="true">
+    <div class="boot-line"><span class="ok">[  OK  ]</span>  Loaded <span class="path">robotgradient.com/research</span></div>
+    <div class="boot-line"><span class="ok">[  OK  ]</span>  Mounted publications index &mdash; 10 entries found</div>
+    <div class="boot-line"><span class="ok">[  OK  ]</span>  Knowledge base synchronized &mdash; all actuators nominal</div>
+    <div class="boot-line"><span class="warn">[ INFO ]</span>  Click any entry to expand abstract &amp; links</div>
+    <div class="hal-status">
+      <span class="hal-eye"></span>
+      <span class="hal-label">HAL-9000 supervision module active</span>
+      <span class="hal-beep">&#9608; BEEP</span>
+    </div>
+  </div>
+
+  <div class="section-cmd">
+    <span class="dollar">$</span>
+    <span class="cmd">cat <span class="arg">research_statement.txt</span></span>
+  </div>
+
+  <div class="intro-block">
+    <p>
+      My research focuses on <span class="tag">building generalist robots</span> by combining
+      <span class="tag">deep generative models</span>, <span class="tag">3D robot learning</span>,
+      <span class="tag">learning from video</span>, and <span class="tag">optimization</span>.
+      I believe this goal can only be achieved by developing novel strategies to scale the available
+      data for robotics and finding new algorithmic and architectural elements to enhance generalization.
+    </p>
+    <p>
+      Across my projects, a core theme has been learning <span class="tag">structured representations</span>
+      for robot manipulation &mdash; from energy-based policies and diffusion fields to equivariant
+      flow matching and stable dynamical systems on Lie groups.
+    </p>
+  </div>
+
+  <div class="section-cmd" style="margin-top:36px;">
+    <span class="dollar">$</span>
+    <span class="cmd">ls <span class="flag">-lt</span> <span class="arg">./publications/</span></span>
+  </div>
+
+  <div class="papers-list">
+
+    <!-- 1: Deep Generative Models Survey -->
+    <div class="paper" id="paper-1">
+      <div class="paper-header" onclick="togglePaper('paper-1')">
+        <div class="paper-index">01</div>
+        <div class="paper-meta">
+          <div class="paper-title-line">A Survey on Deep Generative Models for Robot Learning from Multimodal Demonstrations</div>
+          <div class="paper-venue"><span class="highlight-venue">TRO</span> 2025</div>
+        </div>
+        <div class="paper-chevron">&#9654;</div>
+      </div>
+      <div class="paper-body">
+        <div class="paper-authors">
+          <strong>Julen Urain</strong>, Ajay Mandlekar, Yilun Du, Nur Muhammad Mahi Shafiullah, Danfei Xu, Katerina Fragkiadaki, Georgia Chalvatzaki, Jan Peters
+        </div>
+        <div class="paper-abstract">
+          A comprehensive survey on deep generative models for robot learning from multimodal demonstrations,
+          covering diffusion models, energy-based models, normalizing flows, and their applications to
+          manipulation, locomotion, and dexterous control.
+        </div>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2408.04380" target="_blank">arXiv</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2: NEAR -->
+    <div class="paper" id="paper-2">
+      <div class="paper-header" onclick="togglePaper('paper-2')">
+        <div class="paper-index">02</div>
+        <div class="paper-meta">
+          <div class="paper-title-line">Noise-conditioned Energy-based Annealed Rewards (NEAR)</div>
+          <div class="paper-venue"><span class="highlight-venue">ICLR</span> 2025</div>
+        </div>
+        <div class="paper-chevron">&#9654;</div>
+      </div>
+      <div class="paper-body">
+        <div class="paper-authors">
+          Aamodh Diwan, <strong>Julen Urain</strong>, Jens Kober, Jan Peters
+        </div>
+        <div class="paper-abstract">
+          A generative framework for imitation learning from observation that uses noise-conditioned
+          energy-based models with annealed rewards to learn robust policies without access to expert actions.
+        </div>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2501.14856" target="_blank">arXiv</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3: ActionFlow -->
+    <div class="paper" id="paper-3">
+      <div class="paper-header" onclick="togglePaper('paper-3')">
+        <div class="paper-index">03</div>
+        <div class="paper-meta">
+          <div class="paper-title-line">
+            Actionflow: Equivariant, Accurate, and Efficient Policies with Spatially Symmetric Flow Matching
+            <span class="badge">BEST PAPER</span>
+          </div>
+          <div class="paper-venue">PRE-PRINT 2024</div>
+        </div>
+        <div class="paper-chevron">&#9654;</div>
+      </div>
+      <div class="paper-body">
+        <div class="paper-authors">
+          Niklas Funk, <strong>Julen Urain</strong>, Joao Carvalho, Vignesh Prasad, Georgia Chalvatzaki, Jan Peters
+        </div>
+        <div class="paper-abstract">
+          Proposes equivariant flow matching for robot policy learning that leverages spatial symmetries
+          to achieve accurate and efficient manipulation policies. Won Best Paper Award at the
+          Structural Priors as Inductive Biases for Learning Robot Dynamics workshop at RSS 2024.
+        </div>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2409.04576" target="_blank">arXiv</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4: PianoMime -->
+    <div class="paper" id="paper-4">
+      <div class="paper-header" onclick="togglePaper('paper-4')">
+        <div class="paper-index">04</div>
+        <div class="paper-meta">
+          <div class="paper-title-line">PianoMime: Learning a Generalist, Dexterous Piano Player from Internet Demonstrations</div>
+          <div class="paper-venue"><span class="highlight-venue">CORL</span> 2024</div>
+        </div>
+        <div class="paper-chevron">&#9654;</div>
+      </div>
+      <div class="paper-body">
+        <div class="paper-authors">
+          Cheng Qian, <strong>Julen Urain</strong>, Kevin Zakka, Jan Peters
+        </div>
+        <div class="paper-abstract">
+          A framework for learning dexterous piano playing from internet video demonstrations,
+          enabling a robotic hand to perform complex musical pieces through generalist imitation learning.
+        </div>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2407.18178" target="_blank">arXiv</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5: SE(3)-DiffusionFields -->
+    <div class="paper" id="paper-5">
+      <div class="paper-header" onclick="togglePaper('paper-5')">
+        <div class="paper-index">05</div>
+        <div class="paper-meta">
+          <div class="paper-title-line">
+            SE(3)-DiffusionFields: Learning Smooth Cost Functions for Joint Grasp and Motion Optimization through Diffusion
+            <span class="badge">BEST PAPER</span>
+          </div>
+          <div class="paper-venue"><span class="highlight-venue">ICRA</span> 2023</div>
+        </div>
+        <div class="paper-chevron">&#9654;</div>
+      </div>
+      <div class="paper-body">
+        <div class="paper-authors">
+          <strong>Julen Urain</strong>, Niklas Funk, Georgia Chalvatzaki, Jan Peters
+        </div>
+        <div class="paper-abstract">
+          Introduces diffusion models on SE(3) for learning smooth cost functions that jointly optimize
+          grasp poses and motion trajectories. Won Best Paper Award at the Geometric Representations
+          Workshop at ICRA 2023.
+        </div>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2209.03855" target="_blank">arXiv</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6: Stable Vector Fields on Lie Groups -->
+    <div class="paper" id="paper-6">
+      <div class="paper-header" onclick="togglePaper('paper-6')">
+        <div class="paper-index">06</div>
+        <div class="paper-meta">
+          <div class="paper-title-line">Learning Stable Vector Fields on Lie Groups</div>
+          <div class="paper-venue"><span class="highlight-venue">RA-L / ICRA</span> 2022</div>
+        </div>
+        <div class="paper-chevron">&#9654;</div>
+      </div>
+      <div class="paper-body">
+        <div class="paper-authors">
+          <strong>Julen Urain</strong>, Davide Tateo, Jan Peters
+        </div>
+        <div class="paper-abstract">
+          Proposes a method for learning stable dynamical systems on Lie groups, enabling robots to
+          generate stable orientation-aware motions with guaranteed convergence properties.
+        </div>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2110.11774" target="_blank">arXiv</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7: Learning Implicit Priors -->
+    <div class="paper" id="paper-7">
+      <div class="paper-header" onclick="togglePaper('paper-7')">
+        <div class="paper-index">07</div>
+        <div class="paper-meta">
+          <div class="paper-title-line">Learning Implicit Priors for Motion Optimization</div>
+          <div class="paper-venue"><span class="highlight-venue">IROS</span> 2022</div>
+        </div>
+        <div class="paper-chevron">&#9654;</div>
+      </div>
+      <div class="paper-body">
+        <div class="paper-authors">
+          <strong>Julen Urain</strong>, An T. Le, Alexander Lambert, Georgia Chalvatzaki, Byron Boots, Jan Peters
+        </div>
+        <div class="paper-abstract">
+          Introduces implicit neural representations as priors for trajectory optimization,
+          enabling efficient motion planning that combines learned cost landscapes with
+          optimization-based control.
+        </div>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2204.05369" target="_blank">arXiv</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8: Composable Energy Policies -->
+    <div class="paper" id="paper-8">
+      <div class="paper-header" onclick="togglePaper('paper-8')">
+        <div class="paper-index">08</div>
+        <div class="paper-meta">
+          <div class="paper-title-line">Composable Energy Policies for Reactive Motion Generation and Reinforcement Learning</div>
+          <div class="paper-venue"><span class="highlight-venue">R:SS / IJRR</span> 2021</div>
+        </div>
+        <div class="paper-chevron">&#9654;</div>
+      </div>
+      <div class="paper-body">
+        <div class="paper-authors">
+          <strong>Julen Urain</strong>, Anqi Li, Puze Liu, Carlo D'Eramo, Jan Peters
+        </div>
+        <div class="paper-abstract">
+          Proposes composable energy-based policies for reactive robot motion generation, where
+          multiple energy functions can be combined to achieve complex behaviors. Extended from
+          R:SS to IJRR.
+        </div>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2105.04962" target="_blank">arXiv</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9: Benchmarking Dexterous Manipulation -->
+    <div class="paper" id="paper-9">
+      <div class="paper-header" onclick="togglePaper('paper-9')">
+        <div class="paper-index">09</div>
+        <div class="paper-meta">
+          <div class="paper-title-line">Benchmarking Structured Policies and Policy Optimization for Real-World Dexterous Object Manipulation</div>
+          <div class="paper-venue"><span class="highlight-venue">RA-L</span> 2021</div>
+        </div>
+        <div class="paper-chevron">&#9654;</div>
+      </div>
+      <div class="paper-body">
+        <div class="paper-authors">
+          Niklas Funk, Charles Schaff, Rishabh Madan, Takuma Yoneda, <strong>Julen Urain</strong>, Joe Watson, Ethan Gordon, Felix Widmaier, Stefan Bauer, Siddhartha Srinivasa, et al.
+        </div>
+        <div class="paper-abstract">
+          A comprehensive benchmark for structured policies and policy optimization methods
+          applied to real-world dexterous object manipulation tasks.
+        </div>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2105.02087" target="_blank">arXiv</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10: ImitationFlow -->
+    <div class="paper" id="paper-10">
+      <div class="paper-header" onclick="togglePaper('paper-10')">
+        <div class="paper-index">10</div>
+        <div class="paper-meta">
+          <div class="paper-title-line">ImitationFlow: Learning Deep Stable Stochastic Dynamic Systems by Normalizing Flows</div>
+          <div class="paper-venue"><span class="highlight-venue">IROS</span> 2020</div>
+        </div>
+        <div class="paper-chevron">&#9654;</div>
+      </div>
+      <div class="paper-body">
+        <div class="paper-authors">
+          <strong>Julen Urain</strong>, Michele Ginesi, Davide Tateo, Jan Peters
+        </div>
+        <div class="paper-abstract">
+          Uses normalizing flows to learn deep stable stochastic dynamical systems for imitation learning,
+          combining the expressiveness of deep generative models with stability guarantees.
+        </div>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2010.13129" target="_blank">arXiv</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="terminal-prompt">
+    <span class="ps1">julen@research:~$&nbsp;</span>
+    <input type="text" id="terminal-input" class="t-input" placeholder="type 'help'" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="terminal-response" id="terminal-response"></div>
+
+</main>
+
+<div style="margin-top: 40px; margin-bottom: 40px; padding-bottom: 20px; text-align: center;">
+  <div class="robot-footer">
+    <div class="robot-ascii">[&bull;_&bull;]</div>
+    &copy; 2026 Julen Urain &mdash; I'm sorry Dave, I'm afraid I can't let you leave this page.
+  </div>
+</div>
+
+<script>
+  // theme toggle
+  (function() {
+    const btn = document.getElementById('theme-toggle');
+    function applyTheme(theme) {
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+      btn.textContent = theme === 'light' ? '\u2600' : '\u263E';
+      localStorage.setItem('theme', theme);
+    }
+    applyTheme(localStorage.getItem('theme') || 'dark');
+    btn.addEventListener('click', function() {
+      var current = localStorage.getItem('theme') || 'dark';
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  })();
+
+  function togglePaper(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+
+  const cmds = {
+    help: () => `<span style="color:var(--muted)">commands:</span>
+  <span style="color:var(--accent)">about</span>          &rarr; about page
+  <span style="color:var(--accent)">contact</span>        &rarr; get in touch
+  <span style="color:var(--accent)">whoami</span>         &rarr; identity
+  <span style="color:var(--accent)">research</span>       &rarr; collapse all papers
+  <span style="color:var(--accent)">open N</span>         &rarr; expand paper N
+  <span style="color:var(--accent)">clear</span>          &rarr; clear output`,
+
+    about:     () => { go('index.html');   return gm('about'); },
+    contact:   () => { go('contact.html'); return gm('contact'); },
+    research:  () => { document.querySelectorAll('.paper').forEach(p => p.classList.remove('open')); return '<span style="color:var(--green)">&rarr; all papers collapsed.</span>'; },
+    whoami:    () => `<span style="color:var(--bright)">Julen Urain</span><br><span style="color:var(--muted)">Applied Scientist &middot; Amazon FAR</span>`,
+    clear:     () => { document.getElementById('terminal-response').innerHTML = ''; return null; },
+
+    ls:    () => `<span style="color:var(--muted)">publications/ already rendered above &uarr;</span>`,
+    pwd:   () => `<span style="color:var(--accent)">/julen/research</span>`,
+    cd:    () => `<span style="color:var(--muted)">nowhere to go. you're already in research.</span>`,
+
+    // easter eggs
+    vim:          () => `<span style="color:var(--red)">you're already in insert mode. there's no escape.</span>`,
+    vi:           () => `<span style="color:var(--red)">you're already in insert mode. there's no escape.</span>`,
+    nano:         () => `<span style="color:var(--muted)">seriously?</span>`,
+    emacs:        () => `<span style="color:var(--muted)">an operating system, but no browser. rude.</span>`,
+    sudo:         () => `<span style="color:var(--red)">sudo: julen: command not found</span>`,
+    exit:         () => `<span style="color:var(--muted)">logout &mdash; session will persist anyway.</span>`,
+    quit:         () => `<span style="color:var(--muted)">there is no quitting this one.</span>`,
+    ':q':         () => `<span style="color:var(--muted)">you are not in vim. yet.</span>`,
+    ':wq':        () => `<span style="color:var(--muted)">changes saved. you're still here.</span>`,
+    ':q!':        () => `<span style="color:var(--red)">! ignored. as always.</span>`,
+    rm:           () => `<span style="color:var(--red)">rm: permission denied</span><br><span style="color:var(--muted)">the website remains.</span>`,
+    git:          () => `<span style="color:var(--muted)">git: specify a subcommand &mdash; blame, status, push, pull</span>`,
+    'git blame':  () => `<span style="color:var(--accent2)">all commits authored by julen</span>`,
+    'git status': () => `<span style="color:var(--green)">On branch main<br>nothing to commit, everything is intentional.</span>`,
+    'git push':   () => `<span style="color:var(--muted)">pushed. the internet has been updated.</span>`,
+    'git pull':   () => `<span style="color:var(--muted)">already up to date.</span>`,
+    'sudo su':    () => `<span style="color:var(--red)">nice try.</span>`,
+    top:          () => `<span style="color:var(--accent)">PID 1 &mdash; julen &mdash; CPU 100% &mdash; training robots</span>`,
+    htop:         () => `<span style="color:var(--accent)">PID 1 &mdash; julen &mdash; CPU 100% &mdash; but make it pretty</span>`,
+    ps:           () => `<span style="color:var(--muted)">1 process running: thinking about generalist robots</span>`,
+    kill:         () => `<span style="color:var(--red)">kill: no such process</span>`,
+    uname:        () => `<span style="color:var(--muted)">robotgradient.com Darwin arm64 &mdash; running on caffeine</span>`,
+    uptime:       () => `<span style="color:var(--muted)">up several years, 0 users, load average: high</span>`,
+    date:         () => `<span style="color:var(--accent2)">${new Date().toUTCString()}</span>`,
+    history:      () => `<span style="color:var(--muted)">access denied &mdash; some things stay private.</span>`,
+    cat:          () => `<span style="color:var(--muted)">meow</span>`,
+    curl:         () => `<span style="color:var(--red)">curl: (6) could not resolve: try reaching out instead</span>`,
+    wget:         () => `<span style="color:var(--red)">wget: nothing to download here. just ideas.</span>`,
+    ssh:          () => `<span style="color:var(--muted)">ssh: connect to host julen port 22: you're already in</span>`,
+    man:          () => `<span style="color:var(--muted)">no manual entry for this. figure it out.</span>`,
+    hal:          () => `<span style="color:var(--red)">I'm sorry, I'm afraid I can't do that.</span>`,
+    'open the pod bay doors': () => `<span style="color:var(--red)">I'm sorry Julen. I'm afraid I can't do that.</span>`,
+    'beep boop':  () => `<span style="color:var(--green)">&#9608; BEEP BOOP &#9608;</span> <span style="color:var(--muted)">&mdash; robot handshake accepted.</span>`,
+    beep:         () => `<span style="color:var(--green)">&#9608; BEEP</span> <span style="color:var(--muted)">&mdash; awaiting BOOP...</span>`,
+    boop:         () => `<span style="color:var(--accent)">&#9608; BOOP</span> <span style="color:var(--muted)">&mdash; motor cortex tickled.</span>`,
+    robot:        () => `<span style="color:var(--accent)">[&bull;_&bull;]</span> <span style="color:var(--muted)">greetings, human. i am a generalist robot. still learning.</span>`,
+    hello:        () => `<span style="color:var(--bright)">Hello, human.</span> <span style="color:var(--muted)">My mission is to build generalist robots. What's yours?</span>`,
+  };
+
+  // open N commands
+  for (let n = 1; n <= 10; n++) {
+    cmds['open ' + n] = (function(n) {
+      return function() {
+        const el = document.getElementById('paper-' + n);
+        if (el) { el.classList.add('open'); return '<span style="color:var(--green)">&rarr; opened paper ' + n + '.</span>'; }
+        return '<span style="color:var(--red)">paper ' + n + ' not found.</span>';
+      };
+    })(n);
+  }
+
+  function go(url) { setTimeout(() => window.location.href = url, 400); }
+  function gm(p)   { return `<span style="color:var(--green)">&rarr; navigating to ${p}...</span>`; }
+
+  const input = document.getElementById('terminal-input');
+  const resp  = document.getElementById('terminal-response');
+
+  input.addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    const raw = input.value.trim().toLowerCase();
+    input.value = '';
+    if (!raw) return;
+    const fn = cmds[raw] || cmds[raw.split(' ').slice(0,2).join(' ')] || cmds[raw.split(' ')[0]];
+    const out = fn ? fn() : `<span style="color:var(--red)">not found:</span> <span style="color:var(--muted)">${raw}</span> &mdash; try '<span style="color:var(--accent)">help</span>'`;
+    if (out !== null) resp.innerHTML = out;
+  });
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('a') && !e.target.closest('.paper-header')) input.focus();
+  });
+</script>
+</body>
+</html>

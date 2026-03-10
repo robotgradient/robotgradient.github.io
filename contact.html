@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>~/julen</title>
+  <link rel="icon" href="images/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="terminal.css">
+</head>
+<body>
+
+<script>
+  (function() {
+    var t = localStorage.getItem('theme') || 'dark';
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  })();
+</script>
+
+<nav>
+  <span class="nav-prefix">~/julen</span>
+  <ul>
+    <li><a href="index.html">about</a></li>
+    <li><a href="research.html">research</a></li>
+    <li class="active"><a href="contact.html">contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</nav>
+
+<main>
+
+  <div class="boot-header" aria-hidden="true">
+    <div class="boot-line"><span class="ok">[  OK  ]</span>  Loaded <span class="path">robotgradient.com/contact</span></div>
+    <div class="boot-line"><span class="ok">[  OK  ]</span>  Contact endpoints resolved</div>
+    <div class="boot-line"><span class="ok">[  OK  ]</span>  Communication channels open &mdash; all signals nominal</div>
+    <div class="boot-line"><span class="warn">[ INFO ]</span>  Please include "HEYJULEN" in email subject</div>
+    <div class="hal-status">
+      <span class="hal-eye"></span>
+      <span class="hal-label">HAL-9000 supervision module active</span>
+      <span class="hal-beep">&#9608; BEEP</span>
+    </div>
+  </div>
+
+  <div class="section-cmd">
+    <span class="dollar">$</span>
+    <span class="cmd">cat <span class="arg">contact.txt</span></span>
+  </div>
+
+  <div class="block">
+    <p>
+      If you have any questions or want to collaborate, feel free to reach out!
+      I am always excited to learn more by talking with people.
+      Please include <span class="tag">"HEYJULEN"</span> in the subject of the email so that I don't miss it.
+    </p>
+  </div>
+
+  <div class="section-cmd" style="margin-top:36px;">
+    <span class="dollar">$</span>
+    <span class="cmd">cat <span class="arg">endpoints.txt</span></span>
+  </div>
+
+  <div class="contact-table">
+    <div class="contact-entry">
+      <span class="contact-idx">01</span>
+      <span class="contact-label">stdout</span>
+      <a href="mailto:julen@robot-learning.de">julen@robot-learning.de</a>
+    </div>
+    <div class="contact-entry">
+      <span class="contact-idx">02</span>
+      <span class="contact-label">index</span>
+      <a href="https://scholar.google.com/citations?user=lx5qencAAAAJ&hl" target="_blank">Google Scholar</a>
+    </div>
+    <div class="contact-entry">
+      <span class="contact-idx">03</span>
+      <span class="contact-label">socket</span>
+      <a href="https://github.com/robotgradient" target="_blank">GitHub &mdash; @robotgradient</a>
+    </div>
+    <div class="contact-entry">
+      <span class="contact-idx">04</span>
+      <span class="contact-label">signal</span>
+      <a href="https://twitter.com/robotgradient" target="_blank">Twitter &mdash; @robotgradient</a>
+    </div>
+  </div>
+
+  <div class="availability">
+    <span class="pulse-dot"></span>
+    <span>open to collaboration</span>
+  </div>
+
+  <!-- terminal -->
+  <div class="terminal-prompt">
+    <span class="ps1">julen@contact:~$&nbsp;</span>
+    <input type="text" class="t-input" id="t-in" placeholder="type 'help'" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="t-response" id="t-out"></div>
+
+</main>
+
+<div style="margin-top: 40px; margin-bottom: 40px; padding-bottom: 20px; text-align: center;">
+  <div class="robot-footer">
+    <div class="robot-ascii">[&bull;_&bull;]</div>
+    &copy; 2026 Julen Urain &mdash; I'm sorry Dave, I'm afraid I can't let you leave this page.
+  </div>
+</div>
+
+<script>
+  // theme toggle
+  (function() {
+    const btn = document.getElementById('theme-toggle');
+    function applyTheme(theme) {
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+      btn.textContent = theme === 'light' ? '\u2600' : '\u263E';
+      localStorage.setItem('theme', theme);
+    }
+    applyTheme(localStorage.getItem('theme') || 'dark');
+    btn.addEventListener('click', function() {
+      var current = localStorage.getItem('theme') || 'dark';
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  })();
+
+  const cmds = {
+    help: () => `<span style="color:var(--muted)">commands:</span>
+  <span style="color:var(--accent)">about</span>          &rarr; about page
+  <span style="color:var(--accent)">research</span>       &rarr; publications
+  <span style="color:var(--accent)">whoami</span>         &rarr; identity
+  <span style="color:var(--accent)">clear</span>          &rarr; clear output`,
+
+    about:     () => { go('index.html');     return gm('about'); },
+    research:  () => { go('research.html');  return gm('research'); },
+    contact:   () => `<span style="color:var(--muted)">already here.</span>`,
+    whoami:    () => `<span style="color:var(--bright)">Julen Urain</span><br><span style="color:var(--muted)">Applied Scientist &middot; Amazon FAR</span>`,
+    clear:     () => { document.getElementById('t-out').innerHTML=''; return null; },
+
+    ls:    () => `<span style="color:var(--muted)">endpoints.txt already rendered above &uarr;</span>`,
+    pwd:   () => `<span style="color:var(--accent)">/julen/contact</span>`,
+    cd:    () => `<span style="color:var(--muted)">nowhere to go from here.</span>`,
+
+    // easter eggs
+    vim:          () => `<span style="color:var(--red)">you're already in insert mode. there's no escape.</span>`,
+    vi:           () => `<span style="color:var(--red)">you're already in insert mode. there's no escape.</span>`,
+    nano:         () => `<span style="color:var(--muted)">seriously?</span>`,
+    emacs:        () => `<span style="color:var(--muted)">an operating system, but no browser. rude.</span>`,
+    sudo:         () => `<span style="color:var(--red)">sudo: julen: command not found</span>`,
+    'sudo su':    () => `<span style="color:var(--red)">nice try.</span>`,
+    exit:         () => `<span style="color:var(--muted)">logout &mdash; session will persist anyway.</span>`,
+    quit:         () => `<span style="color:var(--muted)">there is no quitting this one.</span>`,
+    ':q':         () => `<span style="color:var(--muted)">you are not in vim. yet.</span>`,
+    ':wq':        () => `<span style="color:var(--muted)">changes saved. you're still here.</span>`,
+    ':q!':        () => `<span style="color:var(--red)">! ignored. as always.</span>`,
+    rm:           () => `<span style="color:var(--red)">rm: permission denied</span><br><span style="color:var(--muted)">the website remains.</span>`,
+    git:          () => `<span style="color:var(--muted)">git: specify a subcommand</span>`,
+    'git blame':  () => `<span style="color:var(--accent2)">all commits authored by julen</span>`,
+    'git status': () => `<span style="color:var(--green)">On branch main<br>nothing to commit, everything is intentional.</span>`,
+    'git push':   () => `<span style="color:var(--muted)">pushed. the internet has been updated.</span>`,
+    'git pull':   () => `<span style="color:var(--muted)">already up to date.</span>`,
+    top:          () => `<span style="color:var(--accent)">PID 1 &mdash; julen &mdash; CPU 100% &mdash; training robots</span>`,
+    htop:         () => `<span style="color:var(--accent)">PID 1 &mdash; julen &mdash; CPU 100% &mdash; but make it pretty</span>`,
+    ps:           () => `<span style="color:var(--muted)">1 process running: thinking about generalist robots</span>`,
+    kill:         () => `<span style="color:var(--red)">kill: no such process</span>`,
+    uname:        () => `<span style="color:var(--muted)">robotgradient.com Darwin arm64 &mdash; running on caffeine</span>`,
+    uptime:       () => `<span style="color:var(--muted)">up several years, 0 users, load average: high</span>`,
+    date:         () => `<span style="color:var(--accent2)">${new Date().toUTCString()}</span>`,
+    history:      () => `<span style="color:var(--muted)">access denied &mdash; some things stay private.</span>`,
+    cat:          () => `<span style="color:var(--muted)">meow</span>`,
+    ping:         () => `<span style="color:var(--green)">PONG &mdash; julen is reachable.</span>`,
+    curl:         () => `<span style="color:var(--red)">curl: (6) could not resolve: try reaching out instead</span>`,
+    wget:         () => `<span style="color:var(--red)">wget: nothing to download here. just ideas.</span>`,
+    ssh:          () => `<span style="color:var(--muted)">ssh: connect to host julen port 22: you're already in</span>`,
+    man:          () => `<span style="color:var(--muted)">no manual entry for this. figure it out.</span>`,
+    hal:          () => `<span style="color:var(--red)">I'm sorry, I'm afraid I can't do that.</span>`,
+    'open the pod bay doors': () => `<span style="color:var(--red)">I'm sorry Julen. I'm afraid I can't do that.</span>`,
+    'beep boop':  () => `<span style="color:var(--green)">&#9608; BEEP BOOP &#9608;</span> <span style="color:var(--muted)">&mdash; robot handshake accepted.</span>`,
+    beep:         () => `<span style="color:var(--green)">&#9608; BEEP</span> <span style="color:var(--muted)">&mdash; awaiting BOOP...</span>`,
+    boop:         () => `<span style="color:var(--accent)">&#9608; BOOP</span> <span style="color:var(--muted)">&mdash; motor cortex tickled.</span>`,
+    robot:        () => `<span style="color:var(--accent)">[&bull;_&bull;]</span> <span style="color:var(--muted)">greetings, human. i am a generalist robot. still learning.</span>`,
+    hello:        () => `<span style="color:var(--bright)">Hello, human.</span> <span style="color:var(--muted)">My mission is to build generalist robots. What's yours?</span>`,
+    email:        () => `<span style="color:var(--green)">&rarr; julen@robot-learning.de &mdash; don't forget "HEYJULEN" in the subject!</span>`,
+  };
+
+  function go(url) { setTimeout(()=>window.location.href=url, 400); }
+  function gm(p)   { return `<span style="color:var(--green)">&rarr; navigating to ${p}...</span>`; }
+
+  const inp = document.getElementById('t-in');
+  const out = document.getElementById('t-out');
+
+  inp.addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    const raw = inp.value.trim().toLowerCase();
+    inp.value = '';
+    if (!raw) return;
+    const fn = cmds[raw] || cmds[raw.split(' ').slice(0,2).join(' ')] || cmds[raw.split(' ')[0]];
+    const res = fn ? fn() : `<span style="color:var(--red)">not found:</span> <span style="color:var(--muted)">${raw}</span> &mdash; try '<span style="color:var(--accent)">help</span>'`;
+    if (res !== null) out.innerHTML = res;
+  });
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('a')) inp.focus();
+  });
+</script>
+</body>
+</html>

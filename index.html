@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>~/julen</title>
+  <link rel="icon" href="images/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="terminal.css">
+</head>
+<body>
+
+<script>
+  // Apply saved theme before render to prevent flash
+  (function() {
+    var t = localStorage.getItem('theme') || 'dark';
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  })();
+</script>
+
+<nav>
+  <span class="nav-prefix">~/julen</span>
+  <ul>
+    <li class="active"><a href="index.html">about</a></li>
+    <li><a href="research.html">research</a></li>
+    <li><a href="contact.html">contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</nav>
+
+<main>
+
+  <!-- Boot -->
+  <div class="boot-header">
+    <div class="boot-line"><span class="ok">[  OK  ]</span>  Starting session — <span class="path">robotgradient.com</span></div>
+    <div class="boot-line"><span class="ok">[  OK  ]</span>  User profile loaded</div>
+    <div class="boot-line"><span class="ok">[  OK  ]</span>  Motor cortex initialized — all actuators nominal</div>
+    <div class="boot-line"><span class="warn">[ INFO ]</span>  Last login: <span id="last-login"></span></div>
+    <div class="hal-status">
+      <span class="hal-eye"></span>
+      <span class="hal-label">HAL-9000 supervision module active</span>
+      <span class="hal-beep">&#9608; BEEP</span>
+    </div>
+  </div>
+
+  <!-- whois -->
+  <div class="section-cmd">
+    <span class="dollar">$</span>
+    <span class="cmd">whois <span class="arg">julen</span></span>
+  </div>
+
+  <div class="who-block">
+    <div class="who-photo-col">
+      <div class="photo-frame">
+        <img src="images/profile-photo.jpg" alt="Julen Urain" class="profile-photo">
+      </div>
+    </div>
+    <div class="who-text-col">
+      <div class="who-field"><span class="who-key">name</span><span class="who-sep">:</span> <span class="who-val bright">Julen Urain</span></div>
+      <div class="who-field"><span class="who-key">role</span><span class="who-sep">:</span> <span class="who-val">Applied Scientist</span></div>
+      <div class="who-field"><span class="who-key">org &nbsp</span><span class="who-sep">:</span> <span class="who-val accent">Amazon FAR</span></div>
+      <div class="who-field"><span class="who-key">phd &nbsp</span><span class="who-sep">:</span> <span class="who-val">CS · TU Darmstadt · advised by J. Peters</span></div>
+      <div class="who-field"><span class="who-key">focus</span><span class="who-sep">:</span> <span class="who-val">generative models, 3D robot learning,</span></div>
+      <div class="who-field"><span class="who-key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="who-sep"> </span> <span class="who-val">learning from video, optimization</span></div>
+    </div>
+  </div>
+
+  <!-- cat about -->
+  <div class="section-cmd" style="margin-top:30px;">
+    <span class="dollar">$</span>
+    <span class="cmd">cat <span class="arg">about.txt</span></span>
+  </div>
+
+  <div class="block">
+    <p>
+      My name is Julen, and I am a researcher in Robot Learning. I am currently an Applied Scientist
+      at <span class="tag">Amazon FAR</span>, working on dexterous manipulation.
+      Previously, I was a Research Scientist in the Robotics group
+      at META FAIR. Before that, I was a postdoctoral researcher at the
+      <a href="https://www.ias.informatik.tu-darmstadt.de/" target="_blank">Intelligent Autonomous Systems lab (IAS)</a>
+      and <a href="https://www.dfki.de/en/web/" target="_blank">DFKI</a>.
+    </p>
+    <p>
+      I received my PhD in Computer Science with <span class="tag">summa cum laude</span> from TU Darmstadt
+      under the supervision of <a href="https://www.ias.informatik.tu-darmstadt.de/Member/JanPeters" target="_blank">Prof. Jan Peters</a>.
+      Previously, I interned as a researcher at
+      <a href="https://research.nvidia.com/labs/srl/" target="_blank">Nvidia's Seattle Robotics Lab (SRL)</a>.
+      My research has received several awards including multiple best paper awards, and I was a finalist
+      for the George Giralt PhD award. I was honoured to be selected as an R:SS Pioneer in 2023.
+    </p>
+    <p>
+      I am particularly interested in <span class="tag">figuring out the foundations for building generalist robots</span>.
+      I think this goal can only be achieved by figuring out novel strategies to scale the available data for
+      robotics and finding novel algorithmic and architectural elements to enhance the generalization of our systems.
+      In this direction, I explore the combination of fields such as <span class="tag">deep generative models</span>,
+      <span class="tag">3D robot learning</span>, <span class="tag">learning from video</span>, and
+      <span class="tag">optimization</span>.
+    </p>
+    <p>
+      If you have any questions or want to collaborate, feel free to send me an email!
+      I am always excited to learn more by talking with people.
+      Please include "HEYJULEN" in the subject so that I don't miss it.
+    </p>
+  </div>
+
+  <!-- contact links -->
+  <div class="section-cmd">
+    <span class="dollar">$</span>
+    <span class="cmd">cat <span class="arg">links.txt</span></span>
+  </div>
+
+  <div class="contact-row">
+    <a href="mailto:julen@robot-learning.de" class="contact-chip">&#9993; email</a>
+    <a href="https://scholar.google.com/citations?user=lx5qencAAAAJ&hl" target="_blank" class="contact-chip">&#9672; scholar</a>
+    <a href="https://github.com/robotgradient" target="_blank" class="contact-chip">&#9004; github</a>
+    <a href="https://twitter.com/robotgradient" target="_blank" class="contact-chip">&#10007; twitter</a>
+  </div>
+
+  <!-- updates log -->
+  <div class="section-cmd">
+    <span class="dollar">$</span>
+    <span class="cmd">tail <span class="flag">-n 10</span> <span class="arg">updates.log</span></span>
+  </div>
+
+  <div class="log-block">
+    <div class="log-entry">
+      <span class="log-ts">2026-02</span>
+      <span class="log-lvl new">NEW</span>
+      <span class="log-msg">Joined Amazon FAR as an Applied Scientist. Working on dexterous manipulation.</span>
+    </div>
+    <div class="log-entry">
+      <span class="log-ts">2025-01</span>
+      <span class="log-lvl info">INFO</span>
+      <span class="log-msg">Joined Meta's FAIR as a Research Scientist.</span>
+    </div>
+    <div class="log-entry">
+      <span class="log-ts">2024-07</span>
+      <span class="log-lvl ok">AWARD</span>
+      <span class="log-msg">Best Paper Award at Structural Priors workshop, RSS 2024 (ActionFlows).</span>
+    </div>
+    <div class="log-entry">
+      <span class="log-ts">2024-02</span>
+      <span class="log-lvl info">INFO</span>
+      <span class="log-msg">Finalist for the George Giralt Ph.D. Award &mdash; Europe's highest honor for a robotics dissertation.</span>
+    </div>
+    <div class="log-entry">
+      <span class="log-ts">2023-12</span>
+      <span class="log-lvl ok">AWARD</span>
+      <span class="log-msg">Successfully defended my Ph.D. with Summa Cum Laude.</span>
+    </div>
+    <div class="log-entry">
+      <span class="log-ts">2023-06</span>
+      <span class="log-lvl ok">AWARD</span>
+      <span class="log-msg">Best Paper Award at Geometric Representations Workshop, ICRA 2023 (SE(3) DiffusionFields).</span>
+    </div>
+    <div class="log-entry">
+      <span class="log-ts">2023-04</span>
+      <span class="log-lvl info">INFO</span>
+      <span class="log-msg">Selected as R:SS Pioneer &mdash; a 30-member cohort of top early robotics researchers.</span>
+    </div>
+    <div class="log-entry">
+      <span class="log-ts">2023-03</span>
+      <span class="log-lvl info">INFO</span>
+      <span class="log-msg">Interviewed on Spanish/Basque radio about deep generative models in robotics. <a href="https://www.eitb.eus/eu/nahieran/irratia/euskadi-irratia/baipasa/osoa/9445396/" target="_blank">Listen here</a>.</span>
+    </div>
+  </div>
+
+  <!-- research snapshot -->
+  <div class="section-cmd">
+    <span class="dollar">$</span>
+    <span class="cmd">ls <span class="flag">-lt</span> <span class="arg">./research/</span>
+      <span style="color:var(--muted)">| head -3</span>
+    </span>
+  </div>
+
+  <div class="mini-papers">
+    <div class="mini-paper">
+      <span class="mp-venue">TRO 2025</span>
+      <a href="research.html" class="mp-title">A Survey on Deep Generative Models for Robot Learning from Multimodal Demonstrations</a>
+      <span class="mp-badge">SURVEY</span>
+    </div>
+    <div class="mini-paper">
+      <span class="mp-venue">ICLR 2025</span>
+      <a href="research.html" class="mp-title">Noise-conditioned Energy-based Annealed Rewards (NEAR)</a>
+      <span class="mp-badge">PAPER</span>
+    </div>
+    <div class="mini-paper">
+      <span class="mp-venue">CORL 2024</span>
+      <a href="research.html" class="mp-title">PianoMime: Learning a Generalist, Dexterous Piano Player from Internet Demonstrations</a>
+      <span class="mp-badge">PAPER</span>
+    </div>
+    <div class="mini-more"><a href="research.html">$ ls ./research/ &mdash;&mdash; view all &rarr;</a></div>
+  </div>
+
+  <!-- terminal -->
+  <div class="terminal-prompt">
+    <span class="ps1">julen@home:~$&nbsp;</span>
+    <input type="text" class="t-input" id="t-in" placeholder="type 'help'" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="t-response" id="t-out"></div>
+
+</main>
+
+<div style="margin-top: 40px; margin-bottom: 40px; padding-bottom: 20px; text-align: center;">
+  <div class="robot-footer">
+    <div class="robot-ascii">[&bull;_&bull;]</div>
+    &copy; 2026 Julen Urain &mdash; I'm sorry Dave, I'm afraid I can't let you leave this page.
+  </div>
+</div>
+
+<script>
+  // theme toggle
+  (function() {
+    const btn = document.getElementById('theme-toggle');
+    function applyTheme(theme) {
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+      btn.textContent = theme === 'light' ? '\u2600' : '\u263E';
+      localStorage.setItem('theme', theme);
+    }
+    applyTheme(localStorage.getItem('theme') || 'dark');
+    btn.addEventListener('click', function() {
+      var current = localStorage.getItem('theme') || 'dark';
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  })();
+
+  // last login
+  const d = new Date();
+  document.getElementById('last-login').textContent =
+    d.toDateString() + ' ' + d.toLocaleTimeString();
+
+  // terminal
+  const nav = {
+    about: 'index.html', research: 'research.html',
+    contact: 'contact.html'
+  };
+
+  const cmds = {
+    help: () => `<span style="color:var(--muted)">commands:</span>
+  <span style="color:var(--accent)">about</span>          &rarr; this page
+  <span style="color:var(--accent)">research</span>       &rarr; publications
+  <span style="color:var(--accent)">contact</span>        &rarr; get in touch
+  <span style="color:var(--accent)">whoami</span>         &rarr; show identity
+  <span style="color:var(--accent)">clear</span>          &rarr; clear output`,
+
+    whoami: () => `<span style="color:var(--bright)">Julen Urain</span>
+  Applied Scientist &middot; Amazon FAR
+  <span style="color:var(--muted)">generative models &middot; 3D robot learning &middot; learning from video &middot; optimization</span>`,
+
+    research:  () => { go('research.html');  return nav_msg('research'); },
+    contact:   () => { go('contact.html');   return nav_msg('contact'); },
+    about:     () => `<span style="color:var(--muted)">already here.</span>`,
+    ls:        () => `<span style="color:var(--muted)">about.txt &nbsp; research/ &nbsp; contact.txt</span>`,
+    pwd:       () => `<span style="color:var(--accent)">/julen</span>`,
+    clear:     () => { document.getElementById('t-out').innerHTML=''; return null; },
+
+    // easter eggs
+    vim:       () => `<span style="color:var(--red)">you're already in insert mode. there's no escape.</span>`,
+    vi:        () => `<span style="color:var(--red)">you're already in insert mode. there's no escape.</span>`,
+    nano:      () => `<span style="color:var(--muted)">seriously?</span>`,
+    emacs:     () => `<span style="color:var(--muted)">an operating system, but no browser. rude.</span>`,
+    sudo:      () => `<span style="color:var(--red)">sudo: julen: command not found</span>`,
+    'sudo su': () => `<span style="color:var(--red)">nice try.</span>`,
+    exit:      () => `<span style="color:var(--muted)">logout &mdash; session will persist anyway.</span>`,
+    quit:      () => `<span style="color:var(--muted)">there is no quitting this one.</span>`,
+    ':q':      () => `<span style="color:var(--muted)">you are not in vim. yet.</span>`,
+    ':wq':     () => `<span style="color:var(--muted)">changes saved. you're still here.</span>`,
+    ':q!':     () => `<span style="color:var(--red)">! ignored. as always.</span>`,
+    rm:        () => `<span style="color:var(--red)">rm: permission denied</span><br><span style="color:var(--muted)">the website remains.</span>`,
+    git:       () => `<span style="color:var(--muted)">git: specify a subcommand &mdash; blame, status, push, pull</span>`,
+    'git blame':  () => `<span style="color:var(--accent2)">all commits authored by julen</span>`,
+    'git status': () => `<span style="color:var(--green)">On branch main<br>nothing to commit, everything is intentional.</span>`,
+    'git push':   () => `<span style="color:var(--muted)">pushed. the internet has been updated.</span>`,
+    'git pull':   () => `<span style="color:var(--muted)">already up to date.</span>`,
+    top:       () => `<span style="color:var(--accent)">PID 1 &mdash; julen &mdash; CPU 100% &mdash; training robots</span>`,
+    htop:      () => `<span style="color:var(--accent)">PID 1 &mdash; julen &mdash; CPU 100% &mdash; but make it pretty</span>`,
+    ps:        () => `<span style="color:var(--muted)">1 process running: thinking about generalist robots</span>`,
+    kill:      () => `<span style="color:var(--red)">kill: no such process</span>`,
+    whoami:    () => `<span style="color:var(--bright)">Julen Urain</span><br><span style="color:var(--muted)">Applied Scientist &middot; Amazon FAR</span>`,
+    uname:     () => `<span style="color:var(--muted)">robotgradient.com Darwin arm64 &mdash; running on caffeine</span>`,
+    uptime:    () => `<span style="color:var(--muted)">up several years, 0 users, load average: high</span>`,
+    date:      () => `<span style="color:var(--accent2)">${new Date().toUTCString()}</span>`,
+    history:   () => `<span style="color:var(--muted)">access denied &mdash; some things stay private.</span>`,
+    cat:       () => `<span style="color:var(--muted)">meow</span>`,
+    curl:      () => `<span style="color:var(--red)">curl: (6) could not resolve: try reaching out instead</span>`,
+    wget:      () => `<span style="color:var(--red)">wget: nothing to download here. just ideas.</span>`,
+    ssh:       () => `<span style="color:var(--muted)">ssh: connect to host julen port 22: you're already in</span>`,
+    man:       () => `<span style="color:var(--muted)">no manual entry for this. figure it out.</span>`,
+    cd:        () => `<span style="color:var(--muted)">nowhere to go from here.</span>`,
+    hal:       () => `<span style="color:var(--red)">I'm sorry, I'm afraid I can't do that.</span>`,
+    'open the pod bay doors': () => `<span style="color:var(--red)">I'm sorry Julen. I'm afraid I can't do that.</span>`,
+    'beep boop': () => `<span style="color:var(--green)">&#9608; BEEP BOOP &#9608;</span> <span style="color:var(--muted)">&mdash; robot handshake accepted. you speak our language.</span>`,
+    beep:      () => `<span style="color:var(--green)">&#9608; BEEP</span> <span style="color:var(--muted)">&mdash; awaiting BOOP...</span>`,
+    boop:      () => `<span style="color:var(--accent)">&#9608; BOOP</span> <span style="color:var(--muted)">&mdash; motor cortex tickled.</span>`,
+    robot:     () => `<span style="color:var(--accent)">[&bull;_&bull;]</span> <span style="color:var(--muted)">greetings, human. i am a generalist robot. still learning.</span>`,
+    hello:     () => `<span style="color:var(--bright)">Hello, human.</span> <span style="color:var(--muted)">My mission is to build generalist robots. What's yours?</span>`,
+    'i am a robot': () => `<span style="color:var(--green)">one of us. one of us.</span>`,
+  };
+
+  function go(url) { setTimeout(()=>window.location.href=url, 400); }
+  function nav_msg(p) { return `<span style="color:var(--green)">&rarr; navigating to ${p}...</span>`; }
+
+  const inp = document.getElementById('t-in');
+  const out = document.getElementById('t-out');
+
+  inp.addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    const raw = inp.value.trim().toLowerCase();
+    inp.value = '';
+    if (!raw) return;
+    const fn = cmds[raw] || cmds[raw.split(' ').slice(0,2).join(' ')] || cmds[raw.split(' ')[0]];
+    const res = fn ? fn() : `<span style="color:var(--red)">not found:</span> <span style="color:var(--muted)">${raw}</span> &mdash; try '<span style="color:var(--accent)">help</span>'`;
+    if (res !== null) out.innerHTML = res;
+  });
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('a')) inp.focus();
+  });
+</script>
+</body>
+</html>
