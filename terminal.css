@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
+/* ── Solarized Dark ── */
 :root {
-  --bg:      #0d0d0d;
-  --surface: #111111;
-  --border:  #1e1e1e;
-  --dim:     #3a3a3a;
-  --muted:   #666666;
-  --text:    #c8c8c8;
-  --bright:  #e8e8e8;
-  --accent:  #7eb8f7;
-  --accent2: #f0a060;
-  --green:   #6fcf7a;
-  --red:     #ff6b6b;
-  --prompt:  #5a9fd4;
-  --cursor:  #7eb8f7;
+  --bg:      #002b36;
+  --surface: #073642;
+  --border:  #1a4a5a;
+  --dim:     #586e75;
+  --muted:   #657b83;
+  --text:    #839496;
+  --bright:  #93a1a1;
+  --accent:  #268bd2;
+  --accent2: #cb4b16;
+  --green:   #859900;
+  --red:     #dc322f;
+  --prompt:  #268bd2;
+  --cursor:  #268bd2;
 }
 
 /* ── Solarized Light theme ── */
@@ -54,7 +55,7 @@ html, body {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }
 
-::selection { background: rgba(126,184,247,0.18); }
+::selection { background: rgba(38,139,210,0.18); }
 
 a { color: var(--accent); text-decoration: none; transition: color 0.15s; }
 a:hover { color: var(--accent2); }
