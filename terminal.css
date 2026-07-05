@@ -357,7 +357,7 @@ main {
 .gallery {
   margin-top: 6px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 12px;
 }
 
@@ -366,7 +366,7 @@ main {
   display: block;
   border: 1px solid var(--border);
   overflow: hidden;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 16 / 9;
   background: var(--surface);
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, z-index 0s;
   z-index: 1;
@@ -376,10 +376,25 @@ main {
 .gallery-item video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   filter: grayscale(35%) contrast(0.95);
   transition: filter 0.25s, transform 0.25s;
+}
+
+/* wide tile: spans 2 columns, double-wide aspect so it matches a normal tile's height */
+.gallery-item--wide {
+  grid-column: span 2;
+  aspect-ratio: 32 / 9;
+}
+
+.gallery-item--wide img,
+.gallery-item--wide video {
+  object-fit: contain;
+}
+
+@media (max-width: 480px) {
+  .gallery-item--wide { grid-column: 1 / -1; }
 }
 
 .gallery-item:hover {
