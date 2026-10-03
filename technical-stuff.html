@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Talk slides and writing about robot learning by Julen Urain.">
+  <title>technical stuff · ~/julen</title>
+  <link rel="icon" href="images/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="terminal.css">
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme') || 'light';
+      if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
+</head>
+<body>
+
+<nav aria-label="Main navigation">
+  <span class="nav-prefix">~/julen</span>
+  <ul>
+    <li><a href="index.html">about</a></li>
+    <li><a href="research.html">research</a></li>
+    <li class="active"><a href="technical-stuff.html" aria-current="page">technical stuff</a></li>
+    <li><a href="contact.html">contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+</nav>
+
+<main class="technical-stuff-page">
+
+  <div class="boot-header" aria-hidden="true">
+    <div class="boot-line"><span class="ok">[  OK  ]</span>  Loaded <span class="path">robotgradient.com/technical-stuff</span></div>
+    <div class="boot-line"><span class="ok">[  OK  ]</span>  A few things worth sharing</div>
+    <div class="hal-status">
+      <span class="hal-eye"></span>
+      <span class="hal-label">HAL-9000 supervision module active</span>
+      <span class="hal-beep">&#9608; BEEP</span>
+    </div>
+  </div>
+
+  <header class="stuff-intro">
+    <h1>Technical stuff</h1>
+    <p>A home for my talk slides, notes, and occasional blog posts.</p>
+  </header>
+
+  <div class="section-cmd" aria-hidden="true">
+    <span class="dollar">$</span>
+    <span class="cmd">ls <span class="flag">-G</span> <span class="arg">./technical_stuff/</span></span>
+  </div>
+
+  <section class="stuff-gallery" aria-label="Slides and writing">
+    <!-- Add future slides or posts as another linked card in this gallery. -->
+    <a class="stuff-card" href="slides/guest-lecture-homanga/" aria-labelledby="human-videos-title" aria-describedby="human-videos-description">
+      <div class="stuff-preview" aria-hidden="true">
+        <div class="stuff-preview-panel">
+          <img src="slides/guest-lecture-homanga/media/frame_human.jpg" alt="" width="640" height="288">
+          <span class="stuff-preview-label">01 / human video</span>
+        </div>
+        <div class="stuff-preview-panel">
+          <img src="slides/guest-lecture-homanga/media/frame_sim_screenshot.jpg" alt="" width="1280" height="576">
+          <span class="stuff-preview-label">02 / robot policy</span>
+        </div>
+      </div>
+      <div class="stuff-card-body">
+        <div class="stuff-card-meta">
+          <span class="stuff-kind">SLIDES</span>
+          <time datetime="2026-10-01">01 Oct 2026</time>
+        </div>
+        <h2 id="human-videos-title">Reinforcement Learning from Human Videos</h2>
+        <p class="stuff-card-venue">Guest lecture · Johns Hopkins University</p>
+        <p class="stuff-card-description" id="human-videos-description">A practitioner's guide to turning human motion into robot behavior, from retargeting and reinforcement learning to sim-to-real transfer.</p>
+        <span class="stuff-card-action">Open slides <span aria-hidden="true">&rarr;</span></span>
+      </div>
+    </a>
+  </section>
+
+  <div class="terminal-prompt">
+    <span class="ps1">julen@technical:~$&nbsp;</span>
+    <input type="text" class="t-input" id="t-in" aria-label="Terminal command" placeholder="type 'help'" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="t-response" id="t-out" aria-live="polite"></div>
+
+</main>
+
+<footer style="margin-top: 40px; margin-bottom: 40px; padding-bottom: 20px; text-align: center;">
+  <div class="robot-footer">
+    <div class="robot-ascii">[&bull;_&bull;]</div>
+    &copy; 2026 Julen Urain &mdash; I'm sorry Dave, I'm afraid I can't let you leave this page.
+  </div>
+</footer>
+
+<script>
+  (function() {
+    const btn = document.getElementById('theme-toggle');
+    function applyTheme(theme) {
+      if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+      else document.documentElement.removeAttribute('data-theme');
+      btn.textContent = theme === 'dark' ? '\u263E' : '\u2600';
+      localStorage.setItem('theme', theme);
+    }
+    applyTheme(localStorage.getItem('theme') || 'light');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+
+  const inp = document.getElementById('t-in');
+  const out = document.getElementById('t-out');
+  const routes = { about: 'index.html', research: 'research.html', contact: 'contact.html', slides: 'slides/guest-lecture-homanga/' };
+  const cmds = {
+    help: () => 'commands: about · research · technical stuff · contact · slides · ls · pwd · whoami · clear',
+    'technical stuff': () => 'already here.',
+    ls: () => 'Reinforcement Learning from Human Videos — type "slides" to open.',
+    pwd: () => '/julen/technical_stuff',
+    whoami: () => 'Julen Urain · Member of the Technical Staff · Amazon FAR',
+    clear: () => '',
+    hello: () => 'Hello, human. Make yourself at home.',
+    hal: () => "I'm sorry, I'm afraid I can't do that."
+  };
+  inp.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    const command = inp.value.trim().toLowerCase();
+    inp.value = '';
+    if (!command) return;
+    if (Object.hasOwn(routes, command)) {
+      out.textContent = '→ navigating to ' + command + '...';
+      setTimeout(() => { window.location.href = routes[command]; }, 400);
+      return;
+    }
+    out.textContent = Object.hasOwn(cmds, command) ? cmds[command]() : 'not found: ' + command + ' — try "help"';
+  });
+</script>
+</body>
+</html>

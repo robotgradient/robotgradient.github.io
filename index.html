@@ -22,6 +22,7 @@
   <ul>
     <li class="active"><a href="index.html">about</a></li>
     <li><a href="research.html">research</a></li>
+    <li><a href="technical-stuff.html">technical stuff</a></li>
     <li><a href="contact.html">contact</a></li>
   </ul>
   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
@@ -56,7 +57,7 @@
     </div>
     <div class="who-text-col">
       <div class="who-field"><span class="who-key">name</span><span class="who-sep">:</span> <span class="who-val bright">Julen Urain</span></div>
-      <div class="who-field"><span class="who-key">role</span><span class="who-sep">:</span> <span class="who-val">Applied Scientist</span></div>
+      <div class="who-field"><span class="who-key">role</span><span class="who-sep">:</span> <span class="who-val">Member of the Technical Staff</span></div>
       <div class="who-field"><span class="who-key">org &nbsp</span><span class="who-sep">:</span> <span class="who-val accent">Amazon FAR</span></div>
       <div class="who-field"><span class="who-key">phd &nbsp</span><span class="who-sep">:</span> <span class="who-val">CS · TU Darmstadt · advised by J. Peters</span></div>
       <div class="who-field"><span class="who-key">focus</span><span class="who-sep">:</span> <span class="who-val">generative models, 3D robot learning,</span></div>
@@ -72,7 +73,7 @@
 
   <div class="block">
     <p>
-      My name is Julen, and I am a researcher in Robot Learning. I am currently an Applied Scientist
+      My name is Julen, and I am a researcher in Robot Learning. I am currently a Member of the Technical Staff
       at <span class="tag">Amazon FAR</span>, working on dexterous manipulation.
       Previously, I was a Research Scientist in the Robotics group
       at META FAIR. Before that, I was a postdoctoral researcher at the
@@ -165,10 +166,15 @@
   <!-- updates log -->
   <div class="section-cmd">
     <span class="dollar">$</span>
-    <span class="cmd">tail <span class="flag">-n 10</span> <span class="arg">updates.log</span></span>
+    <span class="cmd">tail <span class="flag">-n 11</span> <span class="arg">updates.log</span></span>
   </div>
 
   <div class="log-block">
+    <div class="log-entry">
+      <span class="log-ts">2026-10</span>
+      <span class="log-lvl info">INFO</span>
+      <span class="log-msg">Gave a guest lecture at Johns Hopkins University on Reinforcement Learning from Human Videos. Thanks for the invitation, Homanga :) <a href="slides/guest-lecture-homanga/" target="_blank" rel="noopener">View slides</a>.</span>
+    </div>
     <div class="log-entry">
       <span class="log-ts">2026-05</span>
       <span class="log-lvl info">INFO</span>
@@ -182,7 +188,7 @@
     <div class="log-entry">
       <span class="log-ts">2026-02</span>
       <span class="log-lvl info">INFO</span>
-      <span class="log-msg">Joined Amazon FAR as an Applied Scientist. Working on dexterous manipulation.</span>
+      <span class="log-msg">Joined Amazon FAR as a Member of the Technical Staff. Working on dexterous manipulation.</span>
     </div>
     <div class="log-entry">
       <span class="log-ts">2025-01</span>
@@ -265,25 +271,27 @@
   // terminal
   const nav = {
     about: 'index.html', research: 'research.html',
-    contact: 'contact.html'
+    'technical stuff': 'technical-stuff.html', contact: 'contact.html'
   };
 
   const cmds = {
     help: () => `<span style="color:var(--muted)">commands:</span>
   <span style="color:var(--accent)">about</span>          &rarr; this page
   <span style="color:var(--accent)">research</span>       &rarr; publications
+  <span style="color:var(--accent)">technical stuff</span>    &rarr; slides &amp; writing
   <span style="color:var(--accent)">contact</span>        &rarr; get in touch
   <span style="color:var(--accent)">whoami</span>         &rarr; show identity
   <span style="color:var(--accent)">clear</span>          &rarr; clear output`,
 
     whoami: () => `<span style="color:var(--bright)">Julen Urain</span>
-  Applied Scientist &middot; Amazon FAR
+  Member of the Technical Staff &middot; Amazon FAR
   <span style="color:var(--muted)">generative models &middot; 3D robot learning &middot; learning from video &middot; optimization</span>`,
 
     research:  () => { go('research.html');  return nav_msg('research'); },
+    'technical stuff': () => { go('technical-stuff.html'); return nav_msg('technical stuff'); },
     contact:   () => { go('contact.html');   return nav_msg('contact'); },
     about:     () => `<span style="color:var(--muted)">already here.</span>`,
-    ls:        () => `<span style="color:var(--muted)">about.txt &nbsp; research/ &nbsp; contact.txt</span>`,
+    ls:        () => `<span style="color:var(--muted)">about.txt &nbsp; research/ &nbsp; technical_stuff/ &nbsp; contact.txt</span>`,
     pwd:       () => `<span style="color:var(--accent)">/julen</span>`,
     clear:     () => { document.getElementById('t-out').innerHTML=''; return null; },
 
@@ -309,7 +317,7 @@
     htop:      () => `<span style="color:var(--accent)">PID 1 &mdash; julen &mdash; CPU 100% &mdash; but make it pretty</span>`,
     ps:        () => `<span style="color:var(--muted)">1 process running: thinking about generalist robots</span>`,
     kill:      () => `<span style="color:var(--red)">kill: no such process</span>`,
-    whoami:    () => `<span style="color:var(--bright)">Julen Urain</span><br><span style="color:var(--muted)">Applied Scientist &middot; Amazon FAR</span>`,
+    whoami:    () => `<span style="color:var(--bright)">Julen Urain</span><br><span style="color:var(--muted)">Member of the Technical Staff &middot; Amazon FAR</span>`,
     uname:     () => `<span style="color:var(--muted)">robotgradient.com Darwin arm64 &mdash; running on caffeine</span>`,
     uptime:    () => `<span style="color:var(--muted)">up several years, 0 users, load average: high</span>`,
     date:      () => `<span style="color:var(--accent2)">${new Date().toUTCString()}</span>`,

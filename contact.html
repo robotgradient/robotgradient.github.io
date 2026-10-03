@@ -21,6 +21,7 @@
   <ul>
     <li><a href="index.html">about</a></li>
     <li><a href="research.html">research</a></li>
+    <li><a href="technical-stuff.html">technical stuff</a></li>
     <li class="active"><a href="contact.html">contact</a></li>
   </ul>
   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
@@ -126,13 +127,15 @@
     help: () => `<span style="color:var(--muted)">commands:</span>
   <span style="color:var(--accent)">about</span>          &rarr; about page
   <span style="color:var(--accent)">research</span>       &rarr; publications
+  <span style="color:var(--accent)">technical stuff</span>    &rarr; slides &amp; writing
   <span style="color:var(--accent)">whoami</span>         &rarr; identity
   <span style="color:var(--accent)">clear</span>          &rarr; clear output`,
 
     about:     () => { go('index.html');     return gm('about'); },
     research:  () => { go('research.html');  return gm('research'); },
+    'technical stuff': () => { go('technical-stuff.html'); return gm('technical stuff'); },
     contact:   () => `<span style="color:var(--muted)">already here.</span>`,
-    whoami:    () => `<span style="color:var(--bright)">Julen Urain</span><br><span style="color:var(--muted)">Applied Scientist &middot; Amazon FAR</span>`,
+    whoami:    () => `<span style="color:var(--bright)">Julen Urain</span><br><span style="color:var(--muted)">Member of the Technical Staff &middot; Amazon FAR</span>`,
     clear:     () => { document.getElementById('t-out').innerHTML=''; return null; },
 
     ls:    () => `<span style="color:var(--muted)">endpoints.txt already rendered above &uarr;</span>`,
