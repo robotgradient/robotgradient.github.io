@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>~/julen</title>
   <link rel="icon" href="images/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="terminal.css?v=635c4e4fc49c">
+  <link rel="stylesheet" href="terminal.css?v=7e287f1553a3">
 </head>
 <body>
 
@@ -117,50 +117,55 @@
   </div>
 
   <!-- research gallery -->
-  <div class="section-cmd">
+  <div class="section-cmd" id="research-gallery">
     <span class="dollar">$</span>
     <span class="cmd">ls <span class="flag">-G</span> <span class="arg">research_gallery/</span></span>
   </div>
 
   <div class="gallery">
-    <!--
-      Each tile links to a paper. Replace the placeholder src + href + caption.
-      Works with images, GIFs (just point src to a .gif), or videos:
-        <video src="images/demo.mp4" autoplay loop muted playsinline></video>
-      instead of the <img> tag.
-    -->
-    <a class="gallery-item" href="https://arxiv.org/abs/2209.03855" target="_blank" rel="noopener" title="SE(3)-DiffusionFields (ICRA 2023)">
-      <img src="publication_preview/se3dif.gif" alt="SE(3)-DiffusionFields" loading="lazy">
-      <span class="gallery-caption">SE(3)-DiffusionFields &middot; ICRA 2023</span>
-    </a>
-    <a class="gallery-item" href="https://pianomime.github.io/" target="_blank" rel="noopener" title="PianoMime (CoRL 2024)">
-      <img src="publication_preview/pianomime.gif" alt="PianoMime" loading="lazy">
-      <span class="gallery-caption">PianoMime &middot; CoRL 2024</span>
-    </a>
-    <a class="gallery-item" href="https://arxiv.org/abs/2409.04576" target="_blank" rel="noopener" title="ActionFlow (2024)">
-      <img src="publication_preview/actionflow.gif" alt="ActionFlow" loading="lazy">
-      <span class="gallery-caption">ActionFlow &middot; 2024</span>
-    </a>
-    <a class="gallery-item" href="https://arxiv.org/abs/2501.14856" target="_blank" rel="noopener" title="NEAR (ICLR 2025)">
-      <img src="publication_preview/near.gif" alt="NEAR" loading="lazy">
-      <span class="gallery-caption">NEAR &middot; ICLR 2025</span>
-    </a>
-    <a class="gallery-item" href="https://arxiv.org/abs/2204.05369" target="_blank" rel="noopener" title="Learning Implicit Priors for Motion Optimization (IROS 2022)">
-      <img src="publication_preview/iros_2022.gif" alt="Learning Implicit Priors for Motion Optimization" loading="lazy">
-      <span class="gallery-caption">Implicit Priors for Motion Opt. &middot; IROS 2022</span>
-    </a>
-    <a class="gallery-item" href="https://arxiv.org/abs/2408.04380" target="_blank" rel="noopener" title="Deep Generative Models in Robotics — Survey (TRO 2025)">
-      <img src="publication_preview/survey.png" alt="Deep Generative Models in Robotics survey" loading="lazy">
-      <span class="gallery-caption">DGMs in Robotics: Survey &middot; TRO 2025</span>
-    </a>
-    <a class="gallery-item" href="https://arxiv.org/abs/2411.19393" target="_blank" rel="noopener" title="Global Tensor Motion Planning (RA-L 2025)">
-      <img src="publication_preview/Global_tensor_motion_plan_ral_2025.gif" alt="Global Tensor Motion Planning" loading="lazy">
-      <span class="gallery-caption">Global Tensor Motion Planning &middot; RA-L 2025</span>
-    </a>
-    <a class="gallery-item gallery-item--wide" href="https://aina-robot.github.io/" target="_blank" rel="noopener" title="AINA (ICRA 2026)">
-      <img src="publication_preview/aina_icra2026.gif" alt="AINA" loading="lazy">
-      <span class="gallery-caption">AINA &middot; ICRA 2026</span>
-    </a>
+    <!-- Three full-width rows; --aspect preserves each preview's proportions. -->
+    <div class="gallery-row">
+      <a class="gallery-item" style="--aspect: 1;" href="https://arxiv.org/abs/2209.03855" target="_blank" rel="noopener" title="SE(3)-DiffusionFields (ICRA 2023)">
+        <img src="publication_preview/se3dif.gif" alt="SE(3)-DiffusionFields" width="1028" height="1028" loading="lazy">
+        <span class="gallery-caption">SE(3)-DiffusionFields &middot; ICRA 2023</span>
+      </a>
+      <a class="gallery-item" style="--aspect: 1.185185;" href="https://jc-bao.github.io/spider-project/" target="_blank" rel="noopener" title="SPIDER: Scalable Physics-Informed Dexterous Retargeting (2025)">
+        <img src="publication_preview/spider-bulb.gif" alt="SPIDER: a dexterous robot hand rotating a bulb" width="480" height="405" loading="lazy">
+        <span class="gallery-caption">SPIDER &middot; 2025</span>
+      </a>
+      <a class="gallery-item" style="--aspect: 1.207243;" href="https://arxiv.org/abs/2411.19393" target="_blank" rel="noopener" title="Global Tensor Motion Planning (RA-L 2025)">
+        <img src="publication_preview/Global_tensor_motion_plan_ral_2025.gif" alt="Global Tensor Motion Planning" width="600" height="497" loading="lazy">
+        <span class="gallery-caption">Global Tensor Motion Planning &middot; RA-L 2025</span>
+      </a>
+    </div>
+    <div class="gallery-row">
+      <a class="gallery-item" style="--aspect: 1.315068;" href="https://arxiv.org/abs/2409.04576" target="_blank" rel="noopener" title="ActionFlow (2024)">
+        <img src="publication_preview/actionflow.gif" alt="ActionFlow" width="480" height="365" loading="lazy">
+        <span class="gallery-caption">ActionFlow &middot; 2024</span>
+      </a>
+      <a class="gallery-item" style="--aspect: 1.777778;" href="https://pianomime.github.io/" target="_blank" rel="noopener" title="PianoMime (CoRL 2024)">
+        <img src="publication_preview/pianomime.gif" alt="PianoMime" width="480" height="270" loading="lazy">
+        <span class="gallery-caption">PianoMime &middot; CoRL 2024</span>
+      </a>
+      <a class="gallery-item" style="--aspect: 1.777778;" href="https://arxiv.org/abs/2501.14856" target="_blank" rel="noopener" title="NEAR (ICLR 2025)">
+        <img src="publication_preview/near.gif" alt="NEAR" width="480" height="270" loading="lazy">
+        <span class="gallery-caption">NEAR &middot; ICLR 2025</span>
+      </a>
+      <a class="gallery-item" style="--aspect: 1.774744;" href="https://arxiv.org/abs/2204.05369" target="_blank" rel="noopener" title="Learning Implicit Priors for Motion Optimization (IROS 2022)">
+        <img src="publication_preview/iros_2022.gif" alt="Learning Implicit Priors for Motion Optimization" width="520" height="293" loading="lazy">
+        <span class="gallery-caption">Implicit Priors for Motion Opt. &middot; IROS 2022</span>
+      </a>
+    </div>
+    <div class="gallery-row">
+      <a class="gallery-item" style="--aspect: 2.110115;" href="https://arxiv.org/abs/2408.04380" target="_blank" rel="noopener" title="Deep Generative Models in Robotics — Survey (TRO 2025)">
+        <img src="publication_preview/survey.png" alt="Deep Generative Models in Robotics survey" width="1648" height="781" loading="lazy">
+        <span class="gallery-caption">DGMs in Robotics: Survey &middot; TRO 2025</span>
+      </a>
+      <a class="gallery-item" style="--aspect: 3.658537;" href="https://aina-robot.github.io/" target="_blank" rel="noopener" title="AINA (ICRA 2026)">
+        <img src="publication_preview/aina_icra2026.gif" alt="AINA" width="600" height="164" loading="lazy">
+        <span class="gallery-caption">AINA &middot; ICRA 2026</span>
+      </a>
+    </div>
   </div>
 
   <!-- updates log -->

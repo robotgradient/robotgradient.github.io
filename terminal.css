@@ -355,80 +355,80 @@ main {
 .mini-more a:hover { color: var(--accent); }
 
 /* ── research gallery ── */
+#research-gallery { scroll-margin-top: 54px; }
+
 .gallery {
-  margin-top: 6px;
+  --frame-inset: 6px;
+  margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 12px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
 }
+
+.gallery-row { display: flex; align-items: flex-start; min-width: 0; width: 100%; gap: 14px; }
 
 .gallery-item {
   position: relative;
   display: block;
-  border: 1px solid var(--border);
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background: var(--surface);
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, z-index 0s;
+  flex: var(--aspect, 1.777778) 1 calc(2 * var(--frame-inset) + 2px);
+  min-width: 0;
+  color: var(--muted);
+  transition: transform 0.2s;
   z-index: 1;
 }
 
 .gallery-item img,
 .gallery-item video {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
   display: block;
-  filter: grayscale(35%) contrast(0.95);
-  transition: filter 0.25s, transform 0.25s;
+  padding: var(--frame-inset);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+  filter: grayscale(20%);
+  transition: filter 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
-/* wide tile: spans 2 columns, double-wide aspect so it matches a normal tile's height */
-.gallery-item--wide {
-  grid-column: span 2;
-  aspect-ratio: 32 / 9;
-}
-
-.gallery-item--wide img,
-.gallery-item--wide video {
-  object-fit: contain;
-}
-
-@media (max-width: 480px) {
-  .gallery-item--wide { grid-column: 1 / -1; }
-}
-
-.gallery-item:hover {
-  border-color: var(--accent);
-  transform: scale(1.12);
-  box-shadow: 0 6px 22px rgba(0,0,0,0.28);
+.gallery-item:hover,
+.gallery-item:focus-visible {
+  color: var(--accent);
+  transform: translateY(-2px);
   z-index: 5;
 }
 
 .gallery-item:hover img,
-.gallery-item:hover video {
-  filter: grayscale(0%) contrast(1);
-  transform: scale(1.04);
+.gallery-item:hover video,
+.gallery-item:focus-visible img,
+.gallery-item:focus-visible video {
+  filter: none;
+  border-color: var(--accent);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.1);
 }
+
+.gallery-item:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .gallery-caption {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  padding: 6px 8px;
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  color: var(--bright);
-  background: linear-gradient(transparent, rgba(0,0,0,0.55));
-  color: #fff;
-  opacity: 0;
-  transition: opacity 0.2s;
+  display: block;
+  margin-top: 8px;
+  font-size: 9px;
+  line-height: 1.5;
+  color: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.gallery-item:hover .gallery-caption { opacity: 1; }
-
 @media (max-width: 640px) {
-  .gallery { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
-  .gallery-item:hover { transform: scale(1.06); }
+  .gallery { --frame-inset: 3px; gap: 16px; }
+  .gallery-row { gap: 8px; }
+  .gallery-caption { margin-top: 6px; font-size: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-item, .gallery-item img, .gallery-item video, .gallery-caption { transition: none; }
+  .gallery-item:hover, .gallery-item:focus-visible { transform: none; }
 }
 
 /* ═══════════════════════════════ TECHNICAL STUFF */
